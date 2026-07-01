@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -72,7 +72,7 @@ export default function App() {
                 title: 'NEW EXPENSE', 
                 headerStyle: { backgroundColor: '#FF0055' }, 
                 headerTintColor: '#000', 
-                headerTitleStyle: { fontWeight: '900', fontSize: 24, letterSpacing: 2 } 
+                headerTitleStyle: { fontWeight: '900', fontSize: 24 } 
               }}
             />
           </Stack.Navigator>
