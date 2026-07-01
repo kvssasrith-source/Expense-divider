@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { AppProvider } from './src/context/AppContext';
 
@@ -58,24 +59,26 @@ function TabNavigator() {
 export default function App() {
   return (
     <AppProvider>
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false, contentStyle: { backgroundColor: bgDark } }}>
-          <Stack.Screen name="MainTabs" component={TabNavigator} />
-          <Stack.Screen 
-            name="AddExpense" 
-            component={AddExpenseScreen} 
-            options={{ 
-              presentation: 'modal', 
-              headerShown: true, 
-              title: 'NEW EXPENSE', 
-              headerStyle: { backgroundColor: '#FF0055' }, 
-              headerTintColor: '#000', 
-              headerTitleStyle: { fontWeight: '900', fontSize: 24, letterSpacing: 2 } 
-            }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-      <StatusBar style="light" />
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{ headerShown: false, contentStyle: { backgroundColor: bgDark } }}>
+            <Stack.Screen name="MainTabs" component={TabNavigator} />
+            <Stack.Screen 
+              name="AddExpense" 
+              component={AddExpenseScreen} 
+              options={{ 
+                presentation: 'modal', 
+                headerShown: true, 
+                title: 'NEW EXPENSE', 
+                headerStyle: { backgroundColor: '#FF0055' }, 
+                headerTintColor: '#000', 
+                headerTitleStyle: { fontWeight: '900', fontSize: 24, letterSpacing: 2 } 
+              }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+        <StatusBar style="light" />
+      </SafeAreaProvider>
     </AppProvider>
   );
 }
