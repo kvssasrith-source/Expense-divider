@@ -59,7 +59,7 @@ function TabNavigator() {
 export default function App() {
   return (
     <AppProvider>
-      <SafeAreaProvider>
+      <SafeAreaProvider style={{ flex: 1 }}>
         <NavigationContainer>
           <Stack.Navigator screenOptions={{ headerShown: false, contentStyle: { backgroundColor: bgDark } }}>
             <Stack.Screen name="MainTabs" component={TabNavigator} />
