@@ -1,6 +1,6 @@
 services:
   - type: web
     name: expense-manager-web
-    env: static
-    buildCommand: npm install && npx expo export -p web
-    staticPublishPath: dist
+    env: node
+    buildCommand: npm install && npx expo export
+    startCommand: node server.js
